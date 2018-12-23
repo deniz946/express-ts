@@ -4,12 +4,12 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const mongoUrl = <string>process.env.DATABASE;
+const mongoUrl = process.env.DATABASE as string;
 // we override the mongoose promises library with the bluebird one
 mongoose.Promise = bluebird;
 
 class DbConnect {
-  start() {
+  public start() {
     mongoose
       .connect(
         mongoUrl,
